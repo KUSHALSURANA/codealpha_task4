@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#24483b">
+    <title>LingoBloom | Language Learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+        <a href="#dashboard" class="brand">
+            <span class="brand-icon">✿</span>
+            <span>Lingo<span class="brand-accent">Bloom</span></span>
+        </a>
+
+        <p class="nav-label">LEARN</p>
+        <a href="#dashboard" class="nav-link active" data-section="dashboard">
+            <span>▦</span> Dashboard
+        </a>
+        <a href="#lessons" class="nav-link" data-section="lessons">
+            <span>▤</span> Vocabulary
+        </a>
+        <a href="#grammar" class="nav-link" data-section="grammar">
+            <span>✎</span> Grammar
+        </a>
+        <a href="#quiz" class="nav-link" data-section="quiz">
+            <span>◎</span> Practice Quiz
+        </a>
+        <a href="#bookmarks" class="nav-link" data-section="bookmarks">
+            <span>♡</span> My Saved Words
+        </a>
+
+        <div class="sidebar-spacer"></div>
+
+        <div class="sidebar-tip">
+            <span class="tip-icon">✦</span>
+            <h3>Little by little</h3>
+            <p>Every new word is a step toward fluency.</p>
+        </div>
+
+        <div class="profile">
+            <div class="avatar">K</div>
+            <div>
+                <strong>Kushal Surana</strong>
+                <small>Language learner</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-area">
+
+        <header class="topbar">
+            <div class="mobile-brand">
+                <span class="brand-icon">✿</span>
+                LingoBloom
+            </div>
+
+            <div class="language-picker">
+                <span class="language-icon">🌍</span>
+                <div>
+                    <label for="languageSelect">LEARNING LANGUAGE</label>
+                    <select id="languageSelect">
+                        <option value="es">🇪🇸 Spanish</option>
+                        <option value="fr">🇫🇷 French</option>
+                        <option value="de">🇩🇪 German</option>
+                        <option value="ja">🇯🇵 Japanese</option>
+                        <option value="hi">🇮🇳 Hindi</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="streak-pill">🔥 <strong id="streakValue">0</strong> day streak</div>
+                <div class="top-avatar">K</div>
+            </div>
+        </header>
+
+        <div class="page-content">
+
+            <section id="dashboard" class="page-section">
+                <div class="welcome">
+                    <div>
+                        <p class="eyebrow">YOUR PERSONAL LANGUAGE JOURNEY</p>
+                        <h1>Ready to grow, Kushal? <span>✦</span></h1>
+                        <p class="muted">A few minutes of practice can make a big difference.</p>
+                    </div>
+                    <div class="level-pill">LEVEL <strong id="levelValue">1</strong></div>
+                </div>
+
+                <div class="hero-banner">
+                    <div class="hero-copy">
+                        <span class="hero-tag">✦ YOUR DAILY LESSON</span>
+                        <h2>One word today.<br>A new world tomorrow.</h2>
+                        <p>Build your vocabulary, practice pronunciation, and speak with confidence.</p>
+                        <button class="light-button" data-go="lessons">Start learning <span>→</span></button>
+                    </div>
+                    <div class="hero-illustration" aria-hidden="true">
+                        <div class="orbit orbit-one"></div>
+                        <div class="orbit orbit-two"></div>
+                        <div class="language-bubble">A<span>文</span></div>
+                        <span class="float-letter letter-one">á</span>
+                        <span class="float-letter letter-two">あ</span>
+                        <span class="float-letter letter-three">ñ</span>
+                    </div>
+                </div>
+
+                <div class="section-heading">
+                    <div>
+                        <h2>Your progress</h2>
+                        <p class="muted">Every little win counts.</p>
+                    </div>
+                    <span class="soft-label">ALL-TIME STATS</span>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-icon mint">📚</div>
+                        <p>Words learned</p>
+                        <h3 id="wordsLearned">0</h3>
+                        <span class="stat-foot">Words mastered</span>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon peach">⚡</div>
+                        <p>Total XP earned</p>
+                        <h3 id="xpValue">0</h3>
+                        <span class="stat-foot">Keep earning points</span>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon lavender">🎯</div>
+                        <p>Quiz accuracy</p>
+                        <h3 id="accuracyValue">0%</h3>
+                        <span class="stat-foot">Across all attempts</span>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon yellow">🔥</div>
+                        <p>Learning streak</p>
+                        <h3><span id="dashboardStreak">0</span> <small>days</small></h3>
+                        <span class="stat-foot">Consecutive practice days</span>
+                    </article>
+                </div>
+
+                <div class="dashboard-grid">
+                    <article class="surface daily-surface">
+                        <div class="surface-heading">
+                            <div>
+                                <h2>Today's learning plan</h2>
+                                <p class="muted">Your daily learning goal</p>
+                            </div>
+                            <span class="target-icon">◎</span>
+                        </div>
+
+                        <div class="daily-progress-row">
+                            <div class="progress-ring" id="dailyRing">
+                                <div class="ring-inner">
+                                    <strong id="dailyPercent">0%</strong>
+                                    <span>complete</span>
+                                </div>
+                            </div>
+                            <div class="daily-details">
+                                <strong id="dailyCount">0 of 10 words</strong>
+                                <p>Practice a few words each day to build a lasting habit.</p>
+                                <label for="dailyGoal">Daily word goal</label>
+                                <div class="goal-row">
+                                    <input type="number" id="dailyGoal" min="1" max="100" value="10">
+                                    <button id="saveGoal" class="small-button">Save</button>
+                                </div>
+                                <p id="goalMessage" class="message" aria-live="polite"></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="surface quick-surface">
+                        <div class="surface-heading">
+                            <div>
+                                <h2>Continue learning</h2>
+                                <p class="muted">Choose your next step</p>
+                            </div>
+                        </div>
+                        <button class="quick-action" data-go="lessons">
+                            <span class="quick-icon mint">▤</span>
+                            <span><strong>Vocabulary flashcards</strong><small>Learn words and meanings</small></span>
+                            <span class="arrow">→</span>
+                        </button>
+                        <button class="quick-action" data-go="grammar">
+                            <span class="quick-icon lavender">✎</span>
+                            <span><strong>Grammar essentials</strong><small>Understand sentence rules</small></span>
+                            <span class="arrow">→</span>
+                        </button>
+                        <button class="quick-action" data-go="quiz">
+                            <span class="quick-icon peach">◎</span>
+                            <span><strong>Test your knowledge</strong><small>Practice with a short quiz</small></span>
+                            <span class="arrow">→</span>
+                        </button>
+                    </article>
+                </div>
+
+                <div class="section-heading category-heading">
+                    <div>
+                        <h2>Explore categories</h2>
+                        <p class="muted">Choose what you want to learn.</p>
+                    </div>
+                </div>
+
+                <div class="category-grid">
+                    <button class="category-card" data-category="Greetings">
+                        <span>👋</span><strong>Greetings</strong><small>Say hello naturally</small>
+                    </button>
+                    <button class="category-card" data-category="Food">
+                        <span>🍎</span><strong>Food & dining</strong><small>Order with confidence</small>
+                    </button>
+                    <button class="category-card" data-category="Travel">
+                        <span>✈️</span><strong>Travel</strong><small>Explore new places</small>
+                    </button>
+                    <button class="category-card" data-category="Numbers">
+                        <span>🔢</span><strong>Numbers</strong><small>Learn to count</small>
+                    </button>
+                    <button class="category-card" data-category="Everyday">
+                        <span>💬</span><strong>Everyday phrases</strong><small>Speak in daily life</small>
+                    </button>
+                </div>
+            </section>
+
+            <section id="lessons" class="page-section hidden">
+                <div class="page-title">
+                    <p class="eyebrow">BUILD YOUR VOCABULARY</p>
+                    <h1>Vocabulary studio</h1>
+                    <p class="muted">Explore new words, hear their pronunciation, and save your favourites.</p>
+                </div>
+
+                <div class="filter-row">
+                    <label for="categorySelect">Category</label>
+                    <select id="categorySelect">
+                        <option value="All">All categories</option>
+                        <option value="Greetings">Greetings</option>
+                        <option value="Food">Food & dining</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Numbers">Numbers</option>
+                        <option value="Everyday">Everyday phrases</option>
+                    </select>
+                    <span class="card-counter" id="cardCounter">Card 1 of 1</span>
+                </div>
+
+                <div class="flashcard-area">
+                    <button id="previousCard" class="round-button" aria-label="Previous flashcard">←</button>
+
+                    <article class="flashcard" id="flashcard" tabindex="0"
+                             role="button" aria-label="Flip vocabulary flashcard">
+                        <div class="card-topline">
+                            <span id="cardCategory">GREETINGS</span>
+                            <span id="cardNumber">01 / 10</span>
+                        </div>
+                        <div class="card-main">
+                            <span class="word-label" id="wordLabel">YOUR NEW WORD</span>
+                            <h2 id="wordText">Hola</h2>
+                            <p id="wordPronunciation" class="pronunciation">OH-lah</p>
+                            <button id="speakWord" class="sound-button" type="button">🔊 Hear pronunciation</button>
+                            <p id="flipHint" class="flip-hint">Click the card to reveal the translation ↻</p>
+                        </div>
+                        <div class="card-bottom">
+                            <span id="cardLanguage">SPANISH</span>
+                            <button id="bookmarkWord" class="bookmark-button" type="button">♡ Save word</button>
+                        </div>
+                    </article>
+
+                    <button id="nextCard" class="round-button" aria-label="Next flashcard">→</button>
+                </div>
+
+                <div class="flashcard-controls">
+                    <button id="markLearned" class="primary-button">✓ Mark as learned</button>
+                    <button id="shuffleCards" class="outline-button">⤨ Shuffle cards</button>
+                </div>
+
+                <div class="surface lesson-tip">
+                    <span>💡</span>
+                    <div><strong>Learning tip</strong><p>Say the word out loud, listen to its pronunciation, and try to remember its meaning before flipping the card.</p></div>
+                </div>
+            </section>
+
+            <section id="grammar" class="page-section hidden">
+                <div class="page-title">
+                    <p class="eyebrow">UNDERSTAND HOW LANGUAGE WORKS</p>
+                    <h1>Grammar garden</h1>
+                    <p class="muted">Learn essential rules through simple explanations and examples.</p>
+                </div>
+                <div class="grammar-intro">
+                    <span>✎</span>
+                    <div><strong>Grammar made simple</strong><p>Read a lesson, study the examples, then mark it complete.</p></div>
+                </div>
+                <div id="grammarList" class="grammar-grid"></div>
+            </section>
+
+            <section id="quiz" class="page-section hidden">
+                <div class="page-title">
+                    <p class="eyebrow">PRACTICE MAKES PROGRESS</p>
+                    <h1>Knowledge check</h1>
+                    <p class="muted">Test what you know and earn XP for correct answers.</p>
+                </div>
+
+                <div class="quiz-layout">
+                    <article class="surface quiz-surface">
+                        <div id="quizStart">
+                            <div class="quiz-emblem">✦</div>
+                            <span class="soft-label">QUICK CHALLENGE</span>
+                            <h2>Ready to test yourself?</h2>
+                            <p class="muted">Answer 10 multiple-choice questions from your selected language's vocabulary.</p>
+                            <div class="quiz-benefits">
+                                <span>✓ Instant feedback</span>
+                                <span>✓ Score summary</span>
+                                <span>✓ Earn XP</span>
+                            </div>
+                            <button id="startQuiz" class="primary-button">Start quiz →</button>
+                        </div>
+
+                        <div id="quizPlay" class="hidden">
+                            <div class="quiz-progress-row">
+                                <span id="quizQuestionNumber">QUESTION 1 OF 10</span>
+                                <span id="quizScoreLive">0 correct</span>
+                            </div>
+                            <div class="quiz-progress-track"><div id="quizProgressBar"></div></div>
+                            <p id="quizCategory" class="soft-label">VOCABULARY</p>
+                            <h2 id="quizQuestion">What does this word mean?</h2>
+                            <p id="quizPrompt" class="quiz-prompt">Hola</p>
+                            <div id="quizOptions" class="quiz-options"></div>
+                            <p id="quizFeedback" class="quiz-feedback" aria-live="polite"></p>
+                            <button id="nextQuestion" class="primary-button" disabled>Next question →</button>
+                        </div>
+
+                        <div id="quizResult" class="hidden">
+                            <div class="quiz-emblem">🏆</div>
+                            <span class="soft-label">CHALLENGE COMPLETE</span>
+                            <h2 id="resultTitle">Well done!</h2>
+                            <div class="result-score" id="resultScore">0/10</div>
+                            <p id="resultMessage" class="muted"></p>
+                            <div class="result-stats">
+                                <div><strong id="resultCorrect">0</strong><span>Correct</span></div>
+                                <div><strong id="resultXP">0</strong><span>XP earned</span></div>
+                            </div>
+                            <button id="retryQuiz" class="primary-button">Try another quiz ↻</button>
+                        </div>
+                    </article>
+
+                    <aside class="surface quiz-side">
+                        <span class="quiz-side-icon">🌱</span>
+                        <h3>Progress over perfection</h3>
+                        <p class="muted">Mistakes help you learn. Review difficult words and try again to improve your score.</p>
+                        <div class="quiz-side-stat"><span>Quizzes completed</span><strong id="quizAttempts">0</strong></div>
+                        <div class="quiz-side-stat"><span>Best score</span><strong id="bestScore">—</strong></div>
+                    </aside>
+                </div>
+            </section>
+
+            <section id="bookmarks" class="page-section hidden">
+                <div class="page-title">
+                    <p class="eyebrow">YOUR PERSONAL WORD COLLECTION</p>
+                    <h1>Saved words</h1>
+                    <p class="muted">Revisit your favourites whenever you need a refresher.</p>
+                </div>
+                <div id="bookmarkList" class="saved-word-grid"></div>
+                <div id="bookmarkEmpty" class="surface empty-state">
+                    <div class="empty-icon">♡</div>
+                    <h2>No saved words yet</h2>
+                    <p class="muted">Open Vocabulary and tap “Save word” to build your own revision list.</p>
+                    <button class="primary-button" data-go="lessons">Explore vocabulary</button>
+                </div>
+            </section>
+
+            <footer class="app-footer">
+                <div class="footer-brand">✿ LingoBloom</div>
+                <p>Every word opens a new door.</p>
+                <p class="creator">Made with care by <strong>Kushal Surana</strong></p>
+            </footer>
+        </div>
+    </main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="script.js"></script>
+</body>
+</html>
